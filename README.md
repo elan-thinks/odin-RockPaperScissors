@@ -1,62 +1,65 @@
- ✊ Rock Paper Scissors Game ✋✂️
-# Updated
+Updated
 
-A fun little JavaScript game where you can play Rock, Paper, Scissors against your **friend** or the **machine**! 🤖
+# 🎮 Rock Paper Scissors Game — JavaScript Version
 
----
-
- 📦 What's Inside?
-
-- 🧠 JavaScript logic for both **2-player** and **vs Computer** modes  
-- 🎮 Replay option after every round  
-- 📜 Cute emojis and clean console outputs  
-- ✅ Input validation (no more cheating or typos!)
+A simple text-based Rock, Paper, Scissors game where you can choose to play against a friend or the computer. It includes a scoring system, round selection, and friendly console messages to guide your gameplay.
 
 ---
 
- 🚀 How to Play
+## 🧠 Features
 
-1. Open the project in your browser (use Live Server or just run the HTML file).
-2. Choose your game mode:
-   - `1` → Play with a friend
-   - `2` → Play against the computer
-3. Enter your move: `rock`, `paper`, or `scissor` (only these!).
-4. See the results and have fun!
-5. Choose to play again or quit 😄
+* 👤 **Play with a Friend** or 🤖 **Play against the Computer**
+* 🔄 Choose between:
+
+  * **Single Round**
+  * **Best of 5 Rounds**
+* 📊 Final scores displayed at the end
+* 🎉 Fun and themed game messages
+* 🧠 Input validation to avoid invalid choices
+
+---
+
+## 🚀 How to Use
+
+1. Open the file in a browser or run in a JavaScript environment (like browser dev tools).
+2. You will be prompted to:
+
+   * Choose your opponent (Friend or Computer)
+   * Choose game mode (1 round or 5 rounds)
+3. Enter `rock`, `paper`, or `scissor` when prompted.
+4. Watch the round outcome and score update!
+5. Game ends with a final scoreboard and message.
+
+---
+
+## 📁 File Structure
+
+* `playWithComputer()`: Handles player vs computer gameplay
+* `playWithFriend()`: Handles two-player mode
+* `getRoundWinner(p1, p2)`: Determines the winner of each round and returns result message
+* `playGame(player1, player2)`: Displays final scores and winner message
+* `getComputerChoice()`: Randomly picks computer's move
+* `isValidChoice(choice)`: Ensures only rock, paper, or scissor is accepted
+
+---
+
+## 🛠 Future Ideas
+
+* Add graphical UI with buttons instead of prompt inputs
+* Keep track of win/loss stats over multiple sessions
+* Add sound effects or animations for round results
+
+---
+
+## ✅ Requirements
+
+* JavaScript (no external libraries)
+* Browser or Node.js to run
 
 
 
- 🛠 Tech Used
+## 💻 Made By
 
-- **Vanilla JavaScript** 🍦
-- `prompt()` for user input
-- `console.log()` for results
+elan-thinks
 
-
-
- 🎯 Game Rules
-
-- 🪨 Rock crushes scissors  
-- ✂️ Scissors cut paper  
-- 📄 Paper wraps rock  
-
-
- 🤖 Future Ideas
-
-- Add a GUI version with buttons 🎨  
-- Add score tracking 📊  
-- Add sound effects 🔊  
-
-
- 👩‍💻 Author
-
-Made with 💙 by elanthinks
-
-
-
- 📁 How to Run Locally
-
-```bash
-1. Download or clone the repo
-2. Open the `.html` file in a browser
-3. Open the DevTools (F12) to see the console results
+-

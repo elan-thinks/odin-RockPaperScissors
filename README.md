@@ -88,6 +88,6 @@ project-folder/
 Created with 💖 using **HTML**, **CSS**, and **JavaScript**.
 
 
-elan-thinks
+@elan-thinks
 
 -

@@ -22,15 +22,20 @@ function playGround(mode) {
 
   roundChoose.innerHTML = `
     <h2>Choose Game Round</h2>
-    <button id="one">One</button>
-    <button id="five">Five</button>
+    <div>
+     <button id="one">One</button>
+     <button id="five">Five</button>
+    </div>
   `;
 
   const box1 = document.createElement("div");
+  const boxResult = document.createElement("div");
   const box2 = document.createElement("div");
 
   box1.className = "box1";
+  boxResult.className = "boxResult";
   box2.className = "box2";
+
 
   box1.innerHTML = `
      <div class="p1Div">
@@ -40,7 +45,9 @@ function playGround(mode) {
          <img src="./images/rock.png" alt="" class="img1" id="p2-image">
      </div>
   `;
-
+  boxResult.innerHTML = `
+      <span id="resultView"></span>
+  `;
   box2.innerHTML = `
     <div class="round"><span id="round">Round:</span></div>
     <div class="players">
@@ -73,18 +80,19 @@ function playGround(mode) {
   round1.addEventListener('click', () => {
     rounds = 1;
     roundChoose.remove();
-    startGame(wrapper, box1, box2, mode);
+    startGame(wrapper, box1, box2,boxResult, mode);
   });
 
   round5.addEventListener('click', () => {
     rounds = 5;
     roundChoose.remove();
-    startGame(wrapper, box1, box2, mode);
+    startGame(wrapper, box1, box2,boxResult, mode);
   });
 }
 
-function startGame(wrapper, box1, box2, mode) {
+function startGame(wrapper, box1, box2, boxResult,mode) {
   wrapper.appendChild(box1);
+  wrapper.appendChild(boxResult);
   wrapper.appendChild(box2);
 
   const player1 = document.getElementById('player1');
@@ -111,6 +119,8 @@ function startGame(wrapper, box1, box2, mode) {
   const scissor2 = document.getElementById('scissorClicked-p2');
 
   // Add event listeners
+  document.getElementById('containerLeft').style.boxShadow = "1px 0px 4px 1px rgba(153, 146, 146, 0.6)";
+
   rock1.addEventListener('click', () => handleClick("rock", mode));
   paper1.addEventListener('click', () => handleClick("paper", mode));
   scissor1.addEventListener('click', () => handleClick("scissor", mode));
@@ -152,8 +162,13 @@ function handleClick(choice, isFriendMode) {
       countRounds++;
     }
   } else {
+
     const machineChoice = getComputerChoice();
     const result = getRoundWinner(choice, machineChoice);
+
+    document.getElementById("p1-image").src = `./images/${choice}.png`;
+    document.getElementById("p2-image").src = `./images/${machineChoice}.png`;
+  
     handleResult(result);
     countRounds++;
   }
@@ -170,15 +185,18 @@ function handleClick(choice, isFriendMode) {
 }
 
 function handleResult(result) {
-  console.log(result.beats + "\n" + result.winnerText);
-  if (result.winner === "player1") yourScore++;
-  if (result.winner === "player2") opponentScore++;
+        console.log(result.beats + "\n" + result.winnerText);
+        const resultView = document.getElementById('resultView');
+        resultView.innerText = result.beats;
+        if (result.winner === "player1") yourScore++;
+        if (result.winner === "player2") opponentScore++;
 
-  document.getElementById('count1').innerText = yourScore;
-  document.getElementById('count2').innerText = opponentScore;
+        document.getElementById('count1').innerText = yourScore;
+        document.getElementById('count2').innerText = opponentScore;
 }
 
 function showWinnerNotification(message) {
+    setTimeout(() => {
   const container = document.querySelector(".container");
   const overlay = document.createElement("div");
   overlay.className = "overlay";
@@ -197,31 +215,41 @@ function showWinnerNotification(message) {
   document.getElementById("playAgain").addEventListener("click", () => {
     location.reload();
   });
+}, 1500); 
 }
 
 function disablePlayer1Choices() {
     document.getElementById('rockClicked-p1').style.pointerEvents = "none";
     document.getElementById('paperClicked-p1').style.pointerEvents = "none";
     document.getElementById('scissorClicked-p1').style.pointerEvents = "none";
-  }
+    document.getElementById('containerLeft').style.boxShadow = "1px 0px 4px 1px rgba(22, 21, 21, 0.6)";
+       
+}
   
-  function enablePlayer1Choices() {
+function enablePlayer1Choices() {
     document.getElementById('rockClicked-p1').style.pointerEvents = "auto";
     document.getElementById('paperClicked-p1').style.pointerEvents = "auto";
     document.getElementById('scissorClicked-p1').style.pointerEvents = "auto";
+    
+    document.getElementById('containerLeft').style.boxShadow = "1px 0px 4px 1px rgba(153, 146, 146, 0.6)";
   }
   
   function disablePlayer2Choices() {
     document.getElementById('rockClicked-p2').style.pointerEvents = "none";
     document.getElementById('paperClicked-p2').style.pointerEvents = "none";
     document.getElementById('scissorClicked-p2').style.pointerEvents = "none";
-  }
+    document.getElementById('containerRight').style.boxShadow = "1px 0px 4px 1px rgba(22, 21, 21, 0.6)";
+        
+}
   
   function enablePlayer2Choices() {
     document.getElementById('rockClicked-p2').style.pointerEvents = "auto";
     document.getElementById('paperClicked-p2').style.pointerEvents = "auto";
     document.getElementById('scissorClicked-p2').style.pointerEvents = "auto";
-  }
+  
+    document.getElementById('containerRight').style.boxShadow = "1px 0px 4px 1px rgba(153, 146, 146, 0.6)";
+      
+}
   
 
 function getComputerChoice() {

@@ -1,6 +1,12 @@
 *{
     box-sizing: border-box;
 }
+body{
+    /* background-color:#133b33; */
+    background-color:rgb(22, 21, 21);
+
+   
+}
 .container{
     
     display:   flex;
@@ -9,11 +15,9 @@
 
     height: 100vh;
     width: 100%;
-    /* border: 3px solid blue; */
 }
 .minwindow{
     width: 34%;
-    /* min-width: 8; */
     min-width: 300px;
     height: 40vh;
     display:flex;
@@ -21,7 +25,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: black;
 }
 .minwindow h1 ,span{
     color: white;
@@ -33,22 +36,15 @@
     align-items: center;
     justify-content: center;
     width: 60%;
-    /* min-width: 100px; */
     min-width: 80%;
-    /* min-width: 400px; */
     height:20%;
-    /* border: 3px solid red; */
-
 }
 .buttons button{
     width: 40%;
-    /* min-width: 20px; */
     min-width: 40%;
     height: 6vh;
     border-radius: 10px;
-    /* height: 10%; */
-    /* border: 3px solid red; */
-
+    box-shadow: 1px 0px 14px 1px;
 }
 .buttons button:hover{
     width: 44%;
@@ -57,70 +53,93 @@
 }
 
 .wrapper{
-    /* display:flex; */
-   
-    
     width: 50%;
     min-width: 500px;
-    /* height: 50vh; */
-    /* border: 3px solid blue; */
+}
+.roundChoose{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+.roundChoose div {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    border-radius: 7px;
+}
+.roundChoose div button{
+    color: white;
+    width: 45%;
+    height: 8vh;
+    font-size: 1.2rem;
+    border-radius: 7px;
+    border: none;
+    background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+}
+.roundChoose div button:hover {
+
+    background: linear-gradient(145deg, #2f2f2f, #3a3a3a);
+    box-shadow: 0 0 20px #00f7ff, 0 0 40px #00f7ff77;
+    transform: scale(1.05);
+    color: #00f7ff;
 }
 .box1{
     position: relative;
     height: 40vh;
     display:flex;
-    /* flex-wrap: wrap; */
     align-items: center;
     justify-content: center;
-    background-color: black;
-    /* height: 30vh; */
-    /* grid-template-columns: 2fr 2fr 2fr; */
-    /* border: 3px solid red; */
-
+    box-shadow: 1px 0px 14px 1px;
 }
 .box1 .p1Div{
-    /* border: 3px solid red; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
-
-    /* opacity: 0.6; */
 }
 .box1 .p2Div{
-    /* border: 3px solid red; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
     width: 60%;
-    /* opacity: 0.7; */
-
 }
 .box1 img{
     width: 60%;
-    /* border: 3px solid rgb(81, 255, 0); */
 }
 .box1 img:hover{
     width: 65%;
     transform: scale(1.01);
 }
-
+.boxResult{
+    height: 7vh;
+    display:flex;
+    font-size: 1.4rem;
+    margin: 10px 12px;
+    align-items: center;
+    justify-content: center;
+}
 .box2{
-    /* color: white; */
-    background-color: black;
     height: auto;
-    border: 3px solid white;
-
+    padding: 10px 12px;
+    box-shadow: 1px 0px 14px 1px;
 }
 .round{
     display: flex;
     align-items: center;
     min-height: 6vh;
-    /* border: 3px solid rgb(81, 255, 0); */
+}
+.round span{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #00b894;
 }
 .players{
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
-    /* min-height: 10vh; */
     color: yellow;
-
-
-    /* border: 3px solid rgb(81, 255, 0); */
 }
 .players img{
     width: 25%;
@@ -129,21 +148,18 @@
 }
 #containerLeft{
     color: yellow;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* border: 3px solid rgb(81, 255, 0); */
     width: 50%;
     height: 10vh;
     font-size: 1rem;
-
+    font-weight: 800;
 }
 #containerLeft img{
     border-radius: 12px;
     width: 15%;
-    border: 3px solid rgb(81, 255, 0);
-    
+    box-shadow: 1px 0px 4px 1px  white, 1px 2px 2px 0px rgb(218, 217, 217);
 }
 #containerLeft img:hover{
     width: 20%;
@@ -155,14 +171,14 @@
     align-items: center;
     width: 44%;
     height: 10vh;
-    /* border: 3px solid rgb(81, 255, 0); */
     font-size: 1rem;
+    font-weight: 800;
 
 }
 #containerRight img{
     border-radius: 12px;
     width: 15%;
-    border: 3px solid rgb(81, 255, 0);
+    box-shadow: 1px 0px 4px 1px  white, 1px 2px 2px 0px rgb(218, 217, 217);
 }
 #containerRight img:hover{
     width: 20%;
